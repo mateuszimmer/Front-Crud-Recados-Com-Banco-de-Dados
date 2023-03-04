@@ -39,17 +39,17 @@ const Recados = () => {
         justifyContent: 'center',
     }));
 
-    // useEffect(() => {
+    useEffect(() => {
+        verificaLogado()
+        if(!usuarioLogado) navigate("/")
+    },[ dispatch, usuarioLogado ])
+
+    // useLayoutEffect(() => {
     //     verificaLogado()
     //     if(!usuarioLogado) navigate("/")
     // },[ dispatch, usuarioLogado ])
 
     useLayoutEffect(() => {
-        verificaLogado()
-        if(!usuarioLogado) navigate("/")
-    },[ dispatch, usuarioLogado ])
-
-    useEffect(() => {
         const dataSend: IDadosGetRecados = {
             id: usuarioLogado, 
             arquivado: arquivado, 
